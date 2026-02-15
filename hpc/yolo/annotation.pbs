@@ -1,0 +1,35 @@
+#!/bin/bash
+#PBS -q gpu
+#PBS -o segmentationOutput.log
+#PBS -e segmentationError.log
+#PBS -l walltime=90:00:00
+#PBS -N SAM_Segmentation
+
+# === 1. Change to directory from where job was submitted ===
+cd $PBS_O_WORKDIR
+
+# === 2. Load Anaconda ===
+module load compiler/anaconda3
+
+# === 3. Activate sam_yolo environment using RELATIVE PATH ===
+source ../../venvs/sam_yolo/bin/activate
+
+# === 4. Fix library path issues ===
+export LD_LIBRARY_PATH=$PWD/../../venvs/sam_yolo/lib:$LD_LIBRARY_PATH
+
+# === 5. Debug info ===
+echo "Running on host: $(hostname)"
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+echo "Python version: $(python3 --version)"
+echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+nvidia-smi
+
+# === 6. RUN segmentation.py WITH REQUIRED ARGUMENTS ===
+python3 segmentation.py \
+    --dataset dataset/ \
+    --labels image_categories_cleaned.json \
+    --output output_sam_yolo
+
+# === 7. Exit message ===
+echo "segmentation script ran"
+

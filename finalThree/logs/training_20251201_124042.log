@@ -1,0 +1,299 @@
+2025-12-01 12:40:42,718 - wildlife_classifier - INFO - Logging initialized. Log file: output/logs/training_20251201_124042.log
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO - ======================================================================
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO - Wildlife Three-Class Classification - Training Pipeline
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO - ======================================================================
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO - Configuration:
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO -   dataset_path: cleanData
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO -   labels_path: wildlife_data.json
+2025-12-01 12:40:42,847 - wildlife_classifier - INFO -   output_dir: output
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   batch_size: 32
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   num_workers: 4
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   num_epochs: 70
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   learning_rate: 0.001
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   seed: 42
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   train_prefix: T
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO -   freeze_backbone: False
+2025-12-01 12:40:42,848 - wildlife_classifier - INFO - Using device: cuda
+2025-12-01 12:40:42,849 - wildlife_classifier - INFO - GPU: Tesla V100-PCIE-32GB
+2025-12-01 12:40:42,849 - wildlife_classifier - INFO - GPU Memory: 31.7 GB
+2025-12-01 12:40:42,849 - wildlife_classifier - INFO - PyTorch version: 1.12.1+cu113
+2025-12-01 12:40:42,849 - wildlife_classifier - INFO - Torchvision version: 0.13.1+cu113
+2025-12-01 12:40:42,849 - wildlife_classifier - INFO - Loading labels from wildlife_data.json
+2025-12-01 12:40:42,869 - wildlife_classifier - INFO - Dataset Statistics:
+2025-12-01 12:40:42,869 - wildlife_classifier - INFO -   Total images: 22594
+2025-12-01 12:40:42,869 - wildlife_classifier - INFO -   Empty images (label 0): 2756 (12.2%)
+2025-12-01 12:40:42,869 - wildlife_classifier - INFO -   Human images (label 1): 7776 (34.4%)
+2025-12-01 12:40:42,869 - wildlife_classifier - INFO -   Wildlife images (label 2): 12062 (53.4%)
+2025-12-01 12:40:49,203 - wildlife_classifier - INFO - Image availability:
+2025-12-01 12:40:49,203 - wildlife_classifier - INFO -   Images found: 22592
+2025-12-01 12:40:49,203 - wildlife_classifier - INFO -   Images missing: 2
+2025-12-01 12:40:49,203 - wildlife_classifier - WARNING -   First few missing images: ['C23_madrachi forest_IM_00057.JPG', 'T12_RCNX0174.JPG']
+2025-12-01 12:40:49,322 - wildlife_classifier - INFO - Total labeled images found: 22592
+2025-12-01 12:40:49,322 - wildlife_classifier - INFO - Images starting with 'T' used for training/testing: 22592
+2025-12-01 12:40:49,322 - wildlife_classifier - INFO - Images excluded (for inference only): 0
+2025-12-01 12:40:49,325 - wildlife_classifier - INFO - Train set size: 18073
+2025-12-01 12:40:49,325 - wildlife_classifier - INFO - Validation set size: 4519
+2025-12-01 12:40:49,326 - wildlife_classifier - INFO - Data loaders created with batch size: 32, num_workers: 4
+2025-12-01 12:40:49,326 - wildlife_classifier - INFO - Loading pre-trained ResNet18 model
+2025-12-01 12:41:06,026 - wildlife_classifier - INFO - Model architecture:
+2025-12-01 12:41:06,026 - wildlife_classifier - INFO -   ResNet18 with modified final layer
+2025-12-01 12:41:06,026 - wildlife_classifier - INFO -   Input features to FC layer: 512
+2025-12-01 12:41:06,026 - wildlife_classifier - INFO -   Output classes: 3 (Empty, Humans, Wildlife)
+2025-12-01 12:41:06,027 - wildlife_classifier - INFO -   Model moved to: cuda
+2025-12-01 12:41:06,027 - wildlife_classifier - INFO - Loss function: CrossEntropyLoss
+2025-12-01 12:41:06,027 - wildlife_classifier - INFO - Optimizer: Adam (lr=0.001)
+2025-12-01 12:41:06,054 - wildlife_classifier - INFO - Created directories: output/falseEmptyHumans, output/falseEmptyWildlife
+2025-12-01 12:41:06,054 - wildlife_classifier - INFO - Starting training for 70 epochs
+2025-12-01 13:05:40,657 - wildlife_classifier - INFO - Epoch [1/70] Train - Loss: 0.4615, Acc: 0.8220
+2025-12-01 13:12:20,913 - wildlife_classifier - INFO - Epoch [1/70] Val - Loss: 0.2971, Acc: 0.8936
+2025-12-01 13:12:21,370 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.8936
+2025-12-01 13:12:21,371 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 13:39:41,163 - wildlife_classifier - INFO - Epoch [2/70] Train - Loss: 0.3468, Acc: 0.8676
+2025-12-01 13:45:58,094 - wildlife_classifier - INFO - Epoch [2/70] Val - Loss: 0.2846, Acc: 0.8925
+2025-12-01 13:45:58,162 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 14:00:52,532 - wildlife_classifier - INFO - Epoch [3/70] Train - Loss: 0.3261, Acc: 0.8749
+2025-12-01 14:04:21,059 - wildlife_classifier - INFO - Epoch [3/70] Val - Loss: 0.2627, Acc: 0.9022
+2025-12-01 14:04:21,833 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9022
+2025-12-01 14:04:21,833 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 14:19:09,299 - wildlife_classifier - INFO - Epoch [4/70] Train - Loss: 0.3149, Acc: 0.8782
+2025-12-01 14:22:42,577 - wildlife_classifier - INFO - Epoch [4/70] Val - Loss: 0.2581, Acc: 0.9033
+2025-12-01 14:22:42,927 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9033
+2025-12-01 14:22:42,927 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 14:37:26,188 - wildlife_classifier - INFO - Epoch [5/70] Train - Loss: 0.3029, Acc: 0.8828
+2025-12-01 14:40:57,158 - wildlife_classifier - INFO - Epoch [5/70] Val - Loss: 0.2657, Acc: 0.8980
+2025-12-01 14:40:57,234 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 14:55:57,461 - wildlife_classifier - INFO - Epoch [6/70] Train - Loss: 0.3138, Acc: 0.8814
+2025-12-01 14:59:25,793 - wildlife_classifier - INFO - Epoch [6/70] Val - Loss: 0.2577, Acc: 0.9037
+2025-12-01 14:59:26,276 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9037
+2025-12-01 14:59:26,276 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 15:14:27,626 - wildlife_classifier - INFO - Epoch [7/70] Train - Loss: 0.3000, Acc: 0.8872
+2025-12-01 15:17:54,598 - wildlife_classifier - INFO - Epoch [7/70] Val - Loss: 0.2450, Acc: 0.9088
+2025-12-01 15:17:55,049 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9088
+2025-12-01 15:17:55,049 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 15:32:56,490 - wildlife_classifier - INFO - Epoch [8/70] Train - Loss: 0.3015, Acc: 0.8830
+2025-12-01 15:36:30,725 - wildlife_classifier - INFO - Epoch [8/70] Val - Loss: 0.2441, Acc: 0.9086
+2025-12-01 15:36:30,778 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 15:51:30,603 - wildlife_classifier - INFO - Epoch [9/70] Train - Loss: 0.3003, Acc: 0.8863
+2025-12-01 15:55:02,294 - wildlife_classifier - INFO - Epoch [9/70] Val - Loss: 0.2453, Acc: 0.9104
+2025-12-01 15:55:02,708 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9104
+2025-12-01 15:55:02,708 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 16:09:46,266 - wildlife_classifier - INFO - Epoch [10/70] Train - Loss: 0.2974, Acc: 0.8873
+2025-12-01 16:13:15,192 - wildlife_classifier - INFO - Epoch [10/70] Val - Loss: 0.2499, Acc: 0.9068
+2025-12-01 16:13:15,245 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 16:27:53,706 - wildlife_classifier - INFO - Epoch [11/70] Train - Loss: 0.2985, Acc: 0.8858
+2025-12-01 16:31:22,379 - wildlife_classifier - INFO - Epoch [11/70] Val - Loss: 0.2450, Acc: 0.9033
+2025-12-01 16:31:22,454 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 16:46:25,400 - wildlife_classifier - INFO - Epoch [12/70] Train - Loss: 0.2939, Acc: 0.8875
+2025-12-01 16:49:55,686 - wildlife_classifier - INFO - Epoch [12/70] Val - Loss: 0.2381, Acc: 0.9110
+2025-12-01 16:49:58,472 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9110
+2025-12-01 16:49:58,472 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 17:04:55,984 - wildlife_classifier - INFO - Epoch [13/70] Train - Loss: 0.2950, Acc: 0.8866
+2025-12-01 17:08:27,633 - wildlife_classifier - INFO - Epoch [13/70] Val - Loss: 0.2416, Acc: 0.9055
+2025-12-01 17:08:28,219 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 17:23:16,888 - wildlife_classifier - INFO - Epoch [14/70] Train - Loss: 0.2917, Acc: 0.8878
+2025-12-01 17:26:47,587 - wildlife_classifier - INFO - Epoch [14/70] Val - Loss: 0.2455, Acc: 0.9046
+2025-12-01 17:26:47,675 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 17:41:48,868 - wildlife_classifier - INFO - Epoch [15/70] Train - Loss: 0.2965, Acc: 0.8863
+2025-12-01 17:45:41,559 - wildlife_classifier - INFO - Epoch [15/70] Val - Loss: 0.2590, Acc: 0.9013
+2025-12-01 17:45:41,639 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 18:00:53,009 - wildlife_classifier - INFO - Epoch [16/70] Train - Loss: 0.2924, Acc: 0.8850
+2025-12-01 18:04:27,109 - wildlife_classifier - INFO - Epoch [16/70] Val - Loss: 0.2489, Acc: 0.9026
+2025-12-01 18:04:27,184 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 18:19:20,460 - wildlife_classifier - INFO - Epoch [17/70] Train - Loss: 0.2927, Acc: 0.8873
+2025-12-01 18:22:53,170 - wildlife_classifier - INFO - Epoch [17/70] Val - Loss: 0.2433, Acc: 0.9055
+2025-12-01 18:22:53,231 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 18:37:40,809 - wildlife_classifier - INFO - Epoch [18/70] Train - Loss: 0.2892, Acc: 0.8896
+2025-12-01 18:41:16,070 - wildlife_classifier - INFO - Epoch [18/70] Val - Loss: 0.2365, Acc: 0.9064
+2025-12-01 18:41:16,142 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 18:56:25,195 - wildlife_classifier - INFO - Epoch [19/70] Train - Loss: 0.2924, Acc: 0.8859
+2025-12-01 18:59:55,723 - wildlife_classifier - INFO - Epoch [19/70] Val - Loss: 0.2341, Acc: 0.9110
+2025-12-01 18:59:56,647 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 19:14:55,328 - wildlife_classifier - INFO - Epoch [20/70] Train - Loss: 0.2940, Acc: 0.8857
+2025-12-01 19:18:32,967 - wildlife_classifier - INFO - Epoch [20/70] Val - Loss: 0.2308, Acc: 0.9121
+2025-12-01 19:18:34,961 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9121
+2025-12-01 19:18:34,961 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 19:33:32,320 - wildlife_classifier - INFO - Epoch [21/70] Train - Loss: 0.2937, Acc: 0.8849
+2025-12-01 19:37:03,184 - wildlife_classifier - INFO - Epoch [21/70] Val - Loss: 0.2368, Acc: 0.9077
+2025-12-01 19:37:03,230 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 19:51:52,826 - wildlife_classifier - INFO - Epoch [22/70] Train - Loss: 0.2883, Acc: 0.8890
+2025-12-01 19:55:26,243 - wildlife_classifier - INFO - Epoch [22/70] Val - Loss: 0.2623, Acc: 0.8991
+2025-12-01 19:55:26,303 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 20:10:27,861 - wildlife_classifier - INFO - Epoch [23/70] Train - Loss: 0.2957, Acc: 0.8843
+2025-12-01 20:14:00,029 - wildlife_classifier - INFO - Epoch [23/70] Val - Loss: 0.2629, Acc: 0.8973
+2025-12-01 20:14:00,077 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 20:28:56,214 - wildlife_classifier - INFO - Epoch [24/70] Train - Loss: 0.2876, Acc: 0.8882
+2025-12-01 20:32:29,728 - wildlife_classifier - INFO - Epoch [24/70] Val - Loss: 0.2252, Acc: 0.9150
+2025-12-01 20:32:30,220 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9150
+2025-12-01 20:32:30,220 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 20:47:33,572 - wildlife_classifier - INFO - Epoch [25/70] Train - Loss: 0.2930, Acc: 0.8875
+2025-12-01 20:51:06,277 - wildlife_classifier - INFO - Epoch [25/70] Val - Loss: 0.2248, Acc: 0.9126
+2025-12-01 20:51:06,434 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 21:06:15,645 - wildlife_classifier - INFO - Epoch [26/70] Train - Loss: 0.2822, Acc: 0.8922
+2025-12-01 21:09:46,383 - wildlife_classifier - INFO - Epoch [26/70] Val - Loss: 0.2261, Acc: 0.9135
+2025-12-01 21:09:46,430 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 21:24:37,199 - wildlife_classifier - INFO - Epoch [27/70] Train - Loss: 0.2858, Acc: 0.8915
+2025-12-01 21:28:04,865 - wildlife_classifier - INFO - Epoch [27/70] Val - Loss: 0.2709, Acc: 0.8938
+2025-12-01 21:28:04,922 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 21:42:56,944 - wildlife_classifier - INFO - Epoch [28/70] Train - Loss: 0.2914, Acc: 0.8850
+2025-12-01 21:46:29,600 - wildlife_classifier - INFO - Epoch [28/70] Val - Loss: 0.2329, Acc: 0.9121
+2025-12-01 21:46:30,299 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 22:01:26,452 - wildlife_classifier - INFO - Epoch [29/70] Train - Loss: 0.2901, Acc: 0.8898
+2025-12-01 22:05:00,169 - wildlife_classifier - INFO - Epoch [29/70] Val - Loss: 0.2318, Acc: 0.9106
+2025-12-01 22:05:00,221 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 22:19:51,703 - wildlife_classifier - INFO - Epoch [30/70] Train - Loss: 0.2866, Acc: 0.8893
+2025-12-01 22:23:25,216 - wildlife_classifier - INFO - Epoch [30/70] Val - Loss: 0.2400, Acc: 0.9113
+2025-12-01 22:23:25,293 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 22:38:31,216 - wildlife_classifier - INFO - Epoch [31/70] Train - Loss: 0.2855, Acc: 0.8904
+2025-12-01 22:42:05,519 - wildlife_classifier - INFO - Epoch [31/70] Val - Loss: 0.2473, Acc: 0.9062
+2025-12-01 22:42:05,591 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 22:57:10,403 - wildlife_classifier - INFO - Epoch [32/70] Train - Loss: 0.2898, Acc: 0.8888
+2025-12-01 23:00:45,520 - wildlife_classifier - INFO - Epoch [32/70] Val - Loss: 0.2626, Acc: 0.8967
+2025-12-01 23:00:45,628 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 23:15:45,544 - wildlife_classifier - INFO - Epoch [33/70] Train - Loss: 0.2841, Acc: 0.8885
+2025-12-01 23:19:17,484 - wildlife_classifier - INFO - Epoch [33/70] Val - Loss: 0.2516, Acc: 0.9064
+2025-12-01 23:19:17,773 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 23:34:13,614 - wildlife_classifier - INFO - Epoch [34/70] Train - Loss: 0.2839, Acc: 0.8901
+2025-12-01 23:37:46,320 - wildlife_classifier - INFO - Epoch [34/70] Val - Loss: 0.2283, Acc: 0.9126
+2025-12-01 23:37:46,369 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-01 23:52:52,675 - wildlife_classifier - INFO - Epoch [35/70] Train - Loss: 0.2851, Acc: 0.8900
+2025-12-01 23:56:24,551 - wildlife_classifier - INFO - Epoch [35/70] Val - Loss: 0.2314, Acc: 0.9135
+2025-12-01 23:56:24,618 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 00:11:31,503 - wildlife_classifier - INFO - Epoch [36/70] Train - Loss: 0.2878, Acc: 0.8872
+2025-12-02 00:15:03,244 - wildlife_classifier - INFO - Epoch [36/70] Val - Loss: 0.2259, Acc: 0.9115
+2025-12-02 00:15:03,290 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 00:30:05,173 - wildlife_classifier - INFO - Epoch [37/70] Train - Loss: 0.2774, Acc: 0.8919
+2025-12-02 00:33:46,009 - wildlife_classifier - INFO - Epoch [37/70] Val - Loss: 0.2249, Acc: 0.9146
+2025-12-02 00:33:46,072 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 00:48:47,313 - wildlife_classifier - INFO - Epoch [38/70] Train - Loss: 0.2877, Acc: 0.8898
+2025-12-02 00:52:31,673 - wildlife_classifier - INFO - Epoch [38/70] Val - Loss: 0.2262, Acc: 0.9166
+2025-12-02 00:52:32,400 - wildlife_classifier - INFO - New best model saved with validation accuracy: 0.9166
+2025-12-02 00:52:32,400 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 01:07:58,482 - wildlife_classifier - INFO - Epoch [39/70] Train - Loss: 0.2883, Acc: 0.8885
+2025-12-02 01:11:34,208 - wildlife_classifier - INFO - Epoch [39/70] Val - Loss: 0.2355, Acc: 0.9113
+2025-12-02 01:11:34,271 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 01:26:31,783 - wildlife_classifier - INFO - Epoch [40/70] Train - Loss: 0.2900, Acc: 0.8891
+2025-12-02 01:30:04,424 - wildlife_classifier - INFO - Epoch [40/70] Val - Loss: 0.2371, Acc: 0.9093
+2025-12-02 01:30:05,448 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 01:45:09,812 - wildlife_classifier - INFO - Epoch [41/70] Train - Loss: 0.2843, Acc: 0.8857
+2025-12-02 01:48:39,942 - wildlife_classifier - INFO - Epoch [41/70] Val - Loss: 0.2555, Acc: 0.9082
+2025-12-02 01:48:40,282 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 02:03:31,738 - wildlife_classifier - INFO - Epoch [42/70] Train - Loss: 0.2798, Acc: 0.8935
+2025-12-02 02:07:05,195 - wildlife_classifier - INFO - Epoch [42/70] Val - Loss: 0.2402, Acc: 0.9073
+2025-12-02 02:07:05,248 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 02:22:11,537 - wildlife_classifier - INFO - Epoch [43/70] Train - Loss: 0.2818, Acc: 0.8914
+2025-12-02 02:25:45,354 - wildlife_classifier - INFO - Epoch [43/70] Val - Loss: 0.2276, Acc: 0.9113
+2025-12-02 02:25:45,419 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 02:40:49,547 - wildlife_classifier - INFO - Epoch [44/70] Train - Loss: 0.2879, Acc: 0.8865
+2025-12-02 02:44:24,213 - wildlife_classifier - INFO - Epoch [44/70] Val - Loss: 0.2275, Acc: 0.9137
+2025-12-02 02:44:25,721 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 02:59:31,690 - wildlife_classifier - INFO - Epoch [45/70] Train - Loss: 0.2845, Acc: 0.8907
+2025-12-02 03:03:02,348 - wildlife_classifier - INFO - Epoch [45/70] Val - Loss: 0.2290, Acc: 0.9141
+2025-12-02 03:03:02,400 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 03:18:00,738 - wildlife_classifier - INFO - Epoch [46/70] Train - Loss: 0.2924, Acc: 0.8870
+2025-12-02 03:21:29,253 - wildlife_classifier - INFO - Epoch [46/70] Val - Loss: 0.2460, Acc: 0.9031
+2025-12-02 03:21:29,300 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 03:36:41,294 - wildlife_classifier - INFO - Epoch [47/70] Train - Loss: 0.2852, Acc: 0.8901
+2025-12-02 03:40:11,892 - wildlife_classifier - INFO - Epoch [47/70] Val - Loss: 0.2357, Acc: 0.9093
+2025-12-02 03:40:11,935 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 03:55:04,238 - wildlife_classifier - INFO - Epoch [48/70] Train - Loss: 0.2865, Acc: 0.8916
+2025-12-02 03:58:33,971 - wildlife_classifier - INFO - Epoch [48/70] Val - Loss: 0.2551, Acc: 0.8989
+2025-12-02 03:58:34,044 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 04:13:25,377 - wildlife_classifier - INFO - Epoch [49/70] Train - Loss: 0.2836, Acc: 0.8895
+2025-12-02 04:16:55,138 - wildlife_classifier - INFO - Epoch [49/70] Val - Loss: 0.2275, Acc: 0.9130
+2025-12-02 04:16:55,231 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 04:31:47,549 - wildlife_classifier - INFO - Epoch [50/70] Train - Loss: 0.2882, Acc: 0.8885
+2025-12-02 04:35:18,711 - wildlife_classifier - INFO - Epoch [50/70] Val - Loss: 0.2358, Acc: 0.9073
+2025-12-02 04:35:18,776 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 04:50:09,922 - wildlife_classifier - INFO - Epoch [51/70] Train - Loss: 0.2843, Acc: 0.8899
+2025-12-02 04:53:42,686 - wildlife_classifier - INFO - Epoch [51/70] Val - Loss: 0.2231, Acc: 0.9150
+2025-12-02 04:53:43,987 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 05:08:31,373 - wildlife_classifier - INFO - Epoch [52/70] Train - Loss: 0.2890, Acc: 0.8866
+2025-12-02 05:12:06,572 - wildlife_classifier - INFO - Epoch [52/70] Val - Loss: 0.2464, Acc: 0.9055
+2025-12-02 05:12:06,648 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 05:27:00,089 - wildlife_classifier - INFO - Epoch [53/70] Train - Loss: 0.2833, Acc: 0.8910
+2025-12-02 05:30:31,632 - wildlife_classifier - INFO - Epoch [53/70] Val - Loss: 0.2273, Acc: 0.9141
+2025-12-02 05:30:31,700 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 05:45:20,015 - wildlife_classifier - INFO - Epoch [54/70] Train - Loss: 0.2838, Acc: 0.8893
+2025-12-02 05:48:50,212 - wildlife_classifier - INFO - Epoch [54/70] Val - Loss: 0.2247, Acc: 0.9144
+2025-12-02 05:48:50,286 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 06:04:13,346 - wildlife_classifier - INFO - Epoch [55/70] Train - Loss: 0.2913, Acc: 0.8856
+2025-12-02 06:07:49,199 - wildlife_classifier - INFO - Epoch [55/70] Val - Loss: 0.2273, Acc: 0.9157
+2025-12-02 06:07:50,454 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 06:22:37,992 - wildlife_classifier - INFO - Epoch [56/70] Train - Loss: 0.2821, Acc: 0.8902
+2025-12-02 06:26:09,921 - wildlife_classifier - INFO - Epoch [56/70] Val - Loss: 0.2487, Acc: 0.9042
+2025-12-02 06:26:09,970 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 06:41:05,046 - wildlife_classifier - INFO - Epoch [57/70] Train - Loss: 0.2827, Acc: 0.8907
+2025-12-02 06:44:38,407 - wildlife_classifier - INFO - Epoch [57/70] Val - Loss: 0.2273, Acc: 0.9150
+2025-12-02 06:44:38,446 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 06:59:44,390 - wildlife_classifier - INFO - Epoch [58/70] Train - Loss: 0.2847, Acc: 0.8898
+2025-12-02 07:03:22,153 - wildlife_classifier - INFO - Epoch [58/70] Val - Loss: 0.2556, Acc: 0.9071
+2025-12-02 07:03:23,367 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 07:18:28,753 - wildlife_classifier - INFO - Epoch [59/70] Train - Loss: 0.2826, Acc: 0.8898
+2025-12-02 07:22:01,771 - wildlife_classifier - INFO - Epoch [59/70] Val - Loss: 0.2417, Acc: 0.9055
+2025-12-02 07:22:01,848 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 07:37:04,597 - wildlife_classifier - INFO - Epoch [60/70] Train - Loss: 0.2839, Acc: 0.8887
+2025-12-02 07:40:37,437 - wildlife_classifier - INFO - Epoch [60/70] Val - Loss: 0.2404, Acc: 0.9064
+2025-12-02 07:40:37,490 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 07:55:44,054 - wildlife_classifier - INFO - Epoch [61/70] Train - Loss: 0.2849, Acc: 0.8896
+2025-12-02 07:59:19,994 - wildlife_classifier - INFO - Epoch [61/70] Val - Loss: 0.2318, Acc: 0.9091
+2025-12-02 07:59:20,081 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 08:14:33,538 - wildlife_classifier - INFO - Epoch [62/70] Train - Loss: 0.2853, Acc: 0.8877
+2025-12-02 08:18:09,368 - wildlife_classifier - INFO - Epoch [62/70] Val - Loss: 0.2251, Acc: 0.9161
+2025-12-02 08:18:09,743 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 08:33:04,893 - wildlife_classifier - INFO - Epoch [63/70] Train - Loss: 0.2868, Acc: 0.8886
+2025-12-02 08:36:40,487 - wildlife_classifier - INFO - Epoch [63/70] Val - Loss: 0.2236, Acc: 0.9155
+2025-12-02 08:36:40,536 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 08:51:34,813 - wildlife_classifier - INFO - Epoch [64/70] Train - Loss: 0.2785, Acc: 0.8906
+2025-12-02 08:55:07,785 - wildlife_classifier - INFO - Epoch [64/70] Val - Loss: 0.2341, Acc: 0.9121
+2025-12-02 08:55:07,843 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 09:10:01,007 - wildlife_classifier - INFO - Epoch [65/70] Train - Loss: 0.2832, Acc: 0.8892
+2025-12-02 09:13:33,566 - wildlife_classifier - INFO - Epoch [65/70] Val - Loss: 0.2295, Acc: 0.9133
+2025-12-02 09:13:33,630 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 09:28:36,350 - wildlife_classifier - INFO - Epoch [66/70] Train - Loss: 0.2805, Acc: 0.8903
+2025-12-02 09:32:09,758 - wildlife_classifier - INFO - Epoch [66/70] Val - Loss: 0.2278, Acc: 0.9150
+2025-12-02 09:32:09,828 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 09:47:03,264 - wildlife_classifier - INFO - Epoch [67/70] Train - Loss: 0.2812, Acc: 0.8925
+2025-12-02 09:50:36,184 - wildlife_classifier - INFO - Epoch [67/70] Val - Loss: 0.2198, Acc: 0.9141
+2025-12-02 09:50:36,254 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 10:05:41,839 - wildlife_classifier - INFO - Epoch [68/70] Train - Loss: 0.2837, Acc: 0.8895
+2025-12-02 10:09:14,477 - wildlife_classifier - INFO - Epoch [68/70] Val - Loss: 0.2261, Acc: 0.9144
+2025-12-02 10:09:14,544 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 10:24:13,551 - wildlife_classifier - INFO - Epoch [69/70] Train - Loss: 0.2831, Acc: 0.8892
+2025-12-02 10:27:45,926 - wildlife_classifier - INFO - Epoch [69/70] Val - Loss: 0.2332, Acc: 0.9110
+2025-12-02 10:27:46,941 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 10:42:52,995 - wildlife_classifier - INFO - Epoch [70/70] Train - Loss: 0.2777, Acc: 0.8914
+2025-12-02 10:46:27,706 - wildlife_classifier - INFO - Epoch [70/70] Val - Loss: 0.2219, Acc: 0.9144
+2025-12-02 10:46:29,281 - wildlife_classifier - INFO - Saved false negatives - Human: 0, Wildlife: 14
+2025-12-02 10:46:29,351 - wildlife_classifier - INFO - ----------------------------------------------------------------------
+2025-12-02 10:46:29,351 - wildlife_classifier - INFO - Training completed!
+2025-12-02 10:46:29,351 - wildlife_classifier - INFO - Best validation accuracy: 0.9166
+2025-12-02 10:46:29,351 - wildlife_classifier - INFO - Generating training history plots
+2025-12-02 10:46:30,416 - wildlife_classifier - INFO - Training history plot saved to output/training_history_3class.png
+2025-12-02 10:46:30,417 - wildlife_classifier - INFO - Loading best model from output/best_wildlife_model_3class.pth
+2025-12-02 10:46:31,021 - wildlife_classifier - INFO - Starting model evaluation
+2025-12-02 10:50:07,219 - wildlife_classifier - INFO - Saved false negatives - Human: 0, Wildlife: 12
+2025-12-02 10:50:07,220 - wildlife_classifier - INFO - False negatives saved - Human: 0, Wildlife: 12
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - ======================================================================
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - Model Evaluation Results
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - ======================================================================
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - Accuracy:  0.9166
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - Precision: 0.9180
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - Recall:    0.9166
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - F1-Score:  0.9162
+2025-12-02 10:50:07,231 - wildlife_classifier - INFO - Generating confusion matrix
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - Confusion matrix saved to output/confusionMatrix_3class.png
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - Confusion Matrix Details:
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Empty → Empty: 467
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Empty → Humans: 5
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Empty → Wildlife: 72
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Humans → Empty: 0 (false negatives)
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Humans → Humans: 1308
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Humans → Wildlife: 186
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Wildlife → Empty: 12 (false negatives)
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Wildlife → Humans: 102
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO -   True Wildlife → Wildlife: 2367
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - ======================================================================
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - Training Complete
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - ======================================================================
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - Best model saved to: output/best_wildlife_model_3class.pth
+2025-12-02 10:50:07,582 - wildlife_classifier - INFO - False negatives saved in: output/falseEmptyWildlife and output/falseEmptyHumans

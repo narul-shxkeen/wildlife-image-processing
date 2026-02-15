@@ -1,0 +1,15 @@
+# Python requirements for SAM YOLOv12 Segmentation
+# Install with: pip install -r requirements.txt
+
+# PyTorch (install separately with CUDA support)
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+# Core dependencies
+numpy>=1.21.0
+opencv-python-headless>=4.5.0
+Pillow>=9.0.0
+tqdm>=4.62.0
+
+# Segment Anything Model
+# Install with: pip install git+https://github.com/facebookresearch/segment-anything.git
+

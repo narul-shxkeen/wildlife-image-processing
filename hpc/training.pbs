@@ -1,0 +1,59 @@
+#!/bin/bash
+#PBS -q gpu
+#PBS -o trainingOutput.log
+#PBS -e trainingError.log
+#PBS -l walltime=90:00:00
+#PBS -N TrainingJob
+
+# === 1. Change to the directory from where the job was submitted ===
+cd $PBS_O_WORKDIR
+
+# === 2. Load Anaconda and activate environment ===
+module load compiler/anaconda3
+source activate classification  # or `conda activate classification`
+
+# === 3. Fix library path issue (CRITICAL for GLIBCXX error) ===
+export LD_LIBRARY_PATH=$HOME/.conda/envs/classification/lib:$LD_LIBRARY_PATH
+
+# === 4. (Optional) Load CUDA if not auto-loaded ===
+# module load cuda/11.2
+
+# === 5. Debug info ===
+echo "Running on host: $(hostname)"
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+echo "Python version: $(python3 --version)"
+echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+nvidia-smi
+
+# === 6. Run your script ===
+python3 model.py
+
+# === 7. Exit message ===
+echo "model training completed successfully"#!/bin/bash
+#PBS -q gpu
+#PBS -o trainingOutput.log
+#PBS -e trainingError.log
+#PBS -l walltime=10:00:00
+#PBS -N TrainingJob
+
+# === 1. Change to the directory from where the job was submitted ===
+cd $PBS_O_WORKDIR
+
+# === 2. Load Anaconda and activate environment ===
+module load compiler/anaconda3
+source activate classification  # or `conda activate classification`
+
+# === 3. (Optional) Load CUDA if not auto-loaded ===
+# module load cuda/11.2
+
+# === 4. Debug info ===
+echo "Running on host: $(hostname)"
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+nvidia-smi
+
+# === 5. Run your script ===
+python3 model.py
+
+# === 6. Exit message ===
+echo "model training completed successfully"
+

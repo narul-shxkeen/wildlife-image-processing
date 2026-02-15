@@ -1,0 +1,168 @@
+Running on host: compute4
+CUDA_VISIBLE_DEVICES: 
+Python version: Python 3.10.18
+LD_LIBRARY_PATH: /home/vaibhav.shokeen_ug25/.conda/envs/classification/lib:/apps/compilers/anaconda3/lib64:/usr/local/cuda/lib:
+Fri Nov 21 19:35:15 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.54.15              Driver Version: 550.54.15      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-32GB           Off |   00000000:5E:00.0 Off |                    0 |
+| N/A   48C    P0            186W /  250W |    1577MiB /  32768MiB |     94%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A     77511      C   python3                                      1574MiB |
++-----------------------------------------------------------------------------------------+
+Libraries imported successfully!
+PyTorch version: 1.12.1+cu113
+Torchvision version: 0.13.1+cu113
+Using device: cuda
+GPU: Tesla V100-PCIE-32GB
+GPU Memory: 31.7 GB
+Dataset Statistics:
+Total images: 32813
+Wildlife images (label 1): 14359 (43.8%)
+Empty images (label 0): 18454 (56.2%)
+
+Image availability:
+Images found: 32813
+Images missing: 0
+Dataset class and transformations defined!
+Total labeled images found: 32813
+Images starting with 'T' used for training/testing: 10412
+Images excluded (for inference only): 22401
+Train set size: 8329
+Validation set size: 2083
+Data loaders created with batch size: 32
+Model architecture:
+ResNet18 with modified final layer
+Input features to FC layer: 512
+Output classes: 2
+Model moved to: cuda
+Training function defined!
+Starting training...
+Epoch [1/70]
+Train Loss: 0.3944, Train Acc: 0.8300
+Val Loss: 0.2683, Val Acc: 0.9136
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9136
+Epoch [2/70]
+Train Loss: 0.3118, Train Acc: 0.8773
+Val Loss: 0.3068, Val Acc: 0.8713
+--------------------------------------------------
+Epoch [3/70]
+Train Loss: 0.2895, Train Acc: 0.8885
+Val Loss: 0.2287, Val Acc: 0.9155
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9155
+Epoch [4/70]
+Train Loss: 0.2873, Train Acc: 0.8891
+Val Loss: 0.2324, Val Acc: 0.9083
+--------------------------------------------------
+Epoch [5/70]
+Train Loss: 0.2834, Train Acc: 0.8874
+Val Loss: 0.2220, Val Acc: 0.9184
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9184
+Epoch [6/70]
+Train Loss: 0.2784, Train Acc: 0.8895
+Val Loss: 0.2151, Val Acc: 0.9198
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9198
+Epoch [7/70]
+Train Loss: 0.2826, Train Acc: 0.8907
+Val Loss: 0.2143, Val Acc: 0.9217
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9217
+Epoch [8/70]
+Train Loss: 0.2752, Train Acc: 0.8918
+Val Loss: 0.2150, Val Acc: 0.9165
+--------------------------------------------------
+Epoch [9/70]
+Train Loss: 0.2785, Train Acc: 0.8940
+Val Loss: 0.2156, Val Acc: 0.9184
+--------------------------------------------------
+Epoch [10/70]
+Train Loss: 0.2698, Train Acc: 0.8934
+Val Loss: 0.2174, Val Acc: 0.9213
+--------------------------------------------------
+Epoch [11/70]
+Train Loss: 0.2686, Train Acc: 0.8930
+Val Loss: 0.2232, Val Acc: 0.9112
+--------------------------------------------------
+Epoch [12/70]
+Train Loss: 0.2751, Train Acc: 0.8898
+Val Loss: 0.2527, Val Acc: 0.8939
+--------------------------------------------------
+Epoch [13/70]
+Train Loss: 0.2598, Train Acc: 0.8983
+Val Loss: 0.2333, Val Acc: 0.9016
+--------------------------------------------------
+Epoch [14/70]
+Train Loss: 0.2679, Train Acc: 0.8954
+Val Loss: 0.2149, Val Acc: 0.9174
+--------------------------------------------------
+Epoch [15/70]
+Train Loss: 0.2631, Train Acc: 0.8993
+Val Loss: 0.2082, Val Acc: 0.9208
+--------------------------------------------------
+Epoch [16/70]
+Train Loss: 0.2602, Train Acc: 0.9027
+Val Loss: 0.2118, Val Acc: 0.9193
+--------------------------------------------------
+Epoch [17/70]
+Train Loss: 0.2689, Train Acc: 0.8978
+Val Loss: 0.2107, Val Acc: 0.9208
+--------------------------------------------------
+Epoch [18/70]
+Train Loss: 0.2616, Train Acc: 0.8996
+Val Loss: 0.2133, Val Acc: 0.9198
+--------------------------------------------------
+Epoch [19/70]
+Train Loss: 0.2578, Train Acc: 0.9001
+Val Loss: 0.2133, Val Acc: 0.9193
+--------------------------------------------------
+Epoch [20/70]
+Train Loss: 0.2676, Train Acc: 0.8954
+Val Loss: 0.2114, Val Acc: 0.9222
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9222
+Epoch [21/70]
+Train Loss: 0.2673, Train Acc: 0.8969
+Val Loss: 0.2201, Val Acc: 0.9165
+--------------------------------------------------
+Epoch [22/70]
+Train Loss: 0.2630, Train Acc: 0.8976
+Val Loss: 0.2108, Val Acc: 0.9227
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9227
+Epoch [23/70]
+Train Loss: 0.2594, Train Acc: 0.9030
+Val Loss: 0.2145, Val Acc: 0.9198
+--------------------------------------------------
+Epoch [24/70]
+Train Loss: 0.2622, Train Acc: 0.8994
+Val Loss: 0.2125, Val Acc: 0.9222
+--------------------------------------------------
+Epoch [25/70]
+Train Loss: 0.2739, Train Acc: 0.8947
+Val Loss: 0.2048, Val Acc: 0.9256
+--------------------------------------------------
+New best model saved with validation accuracy: 0.9256
+Epoch [26/70]
+Train Loss: 0.2620, Train Acc: 0.8991
+Val Loss: 0.2124, Val Acc: 0.9241
+--------------------------------------------------
+Epoch [27/70]
+Train Loss: 0.2622, Train Acc: 0.9001
+Val Loss: 0.2158, Val Acc: 0.9198
+--------------------------------------------------
